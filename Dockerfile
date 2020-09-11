@@ -16,7 +16,7 @@ RUN apt-get update \
     && cd /lsif-clang \
     && PATH_TO_LLVM=/usr ./config.sh build \
     && cd build \
-    && make -j8 \
+    && make \
     && make install \
     && cd / \
     && rm -r lsif-clang \
