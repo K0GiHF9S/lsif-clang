@@ -10,6 +10,7 @@ RUN apt-get update \
     clang \
     curl \
     bash-completion \
+    python3-pip \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* \
     && git clone https://github.com/sourcegraph/lsif-clang.git \
@@ -20,11 +21,7 @@ RUN apt-get update \
     && make install \
     && cd / \
     && rm -r lsif-clang \
-    && git clone https://github.com/rizsotto/Bear.git \
-    && cd /Bear \
-    && cmake . \
-    && make \
-    && make install \
+    && pip3 install compiledb \
     && curl -L https://sourcegraph.com/.api/src-cli/src_linux_amd64 -o /usr/local/bin/src \
     && chmod +x /usr/local/bin/src
 
